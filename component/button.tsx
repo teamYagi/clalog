@@ -9,16 +9,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-  return (
-    <button
-      onClick={() => {
-        onClick && onClick();
-      }}
-      className="px-3 py-2 bg-blue-400 rounded-lg text-white"
-    >
-      {text}
-    </button>
-  );
+  return <button onClick={onClick}>{text}</button>;
 };
 
 export default Button;

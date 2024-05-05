@@ -3,33 +3,47 @@ import supabase from "./supabase";
 const searchCollege = async (searchTerm: string) => {
   const { data, error } = await supabase
     .from("College_name")
-    .select()
+    .select("College_name, Class_name_1, Class_name_2")
     .textSearch("College_name", searchTerm);
   if (error) {
     console.error("Error searching data in College_name:", error.message);
-    return [];
+    return null;
   } else {
-    return data || [];
+    return data ? data[0] : null;
   }
 };
-const searchClass = async (searchTerm: string) => {
+
+const searchClass = async (className: string) => {
   const { data, error } = await supabase
     .from("Class_name")
-    .select()
-    .textSearch("teacher_name", searchTerm);
+    .select("Class, teacher, classtype")
+    .eq("Class", className);
+
   if (error) {
     console.error("Error searching data in Class_name:", error.message);
     return [];
   } else {
-    return data || [];
+    const formattedData = data?.map(
+      (item: any) => `${item.Class} ${item.teacher} ${item.classtype}`
+    );
+    return formattedData || [];
   }
 };
 
 const searchData = async (searchTerm: string) => {
-  const result1 = await searchCollege(searchTerm);
-  const result2 = await searchClass(searchTerm);
+  const collegeData = await searchCollege(searchTerm);
 
-  return { result1, result2 };
+  if (collegeData) {
+    const classData1 = await searchClass(collegeData.Class_name_1);
+    const classData2 = await searchClass(collegeData.Class_name_2);
+
+    return {
+      collegeName: collegeData.College_name,
+      classData: [...classData1, ...classData2],
+    };
+  } else {
+    return { collegeName: null, classData: [] };
+  }
 };
 
 export default searchData;
