@@ -1,0 +1,109 @@
+.button {
+  color: red;
+}
+.button1 {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.button2 {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.heading1 {
+  margin-right: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.set {
+  flex: 1;
+
+  align-items: center;
+  margin-left: 20px;
+}
+
+.set-content {
+  display: flex; /* ボタンと数字を横並びに配置 */
+  /* 数字とボタンを垂直方向に中央揃え */
+}
+
+.number {
+  margin-right: 5px; /* 数字とボタンの間にスペースを追加 */
+}
+
+.container p {
+  margin-right: 40px;
+  margin-left: 20px;
+  font-size: 24px;
+}
+
+.main h2 {
+  padding-left: 20px;
+  font-weight: normal;
+}
+
+.main {
+  height: 100%;
+}
+.container1 {
+  width: 50%;
+}
+
+.container1 h2 {
+  border: 1px solid black;
+  padding: 10px; /* オプション：線からテキストまでの間隔を追加 */
+}
+
+.container1 span {
+  padding-left: 40%;
+}
+
+.container3 {
+  display: flex;
+}
+
+.container2 {
+  width: 50%;
+}
+.container2 h2 {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.container2 span {
+  padding-left: 40%;
+}
+.container_middle {
+  display: flex;
+  padding-left: 10%;
+}
+
+@media (max-width: 660px) {
+  .container3 h2 {
+    height: 94px;
+  }
+  .container3 span {
+    display: block;
+  }
+  .container_middle {
+    display: block;
+  }
+}

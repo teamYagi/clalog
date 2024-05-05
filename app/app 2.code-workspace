@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"name": "app 2",
+		"path": "."
+	},
+	{
+		"name": "app",
+		"path": "../../clalog/app"
+	}
+],
+  "settings": {}
+}
